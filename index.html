@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CareerInitWithShubham — Premium Ebooks</title>
+<style>
+:root{
+  --bg:#020806; --bg2:#061510; --card:#081b15;
+  --text:#f2fff9; --muted:#91aaa1;
+  --mint:#35ffc0; --green:#16d993; --cyan:#36dfff;
+  --violet:#9d62ff; --pink:#ff4d8d; --gold:#ffd34d;
+  --line:rgba(91,255,203,.22);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--text);
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+   radial-gradient(circle at 50% -5%,rgba(53,255,192,.16),transparent 28%),
+   radial-gradient(circle at 100% 55%,rgba(157,98,255,.10),transparent 25%),
+   linear-gradient(rgba(255,255,255,.017) 1px,transparent 1px),
+   linear-gradient(90deg,rgba(255,255,255,.017) 1px,transparent 1px),var(--bg);
+  background-size:auto,auto,50px 50px,50px 50px,auto;
+}
+.wrap{max-width:1200px;margin:auto;padding:80px 18px;position:relative;overflow:hidden}
+.brand{text-align:center;margin-bottom:55px}
+.brand .logo{
+  font-weight:1000;letter-spacing:2px;font-size:clamp(18px,4vw,30px);
+  text-transform:uppercase
+}
+.brand .logo span{color:var(--mint);text-shadow:0 0 22px rgba(53,255,192,.35)}
+.brand p{margin:10px auto 0;color:var(--muted);font-size:13px}
+.hero{text-align:center;position:relative;z-index:2}
+.badge{
+  display:inline-flex;gap:9px;align-items:center;padding:9px 15px;border-radius:999px;
+  color:var(--mint);font-size:11px;font-weight:950;letter-spacing:1.8px;
+  border:1px solid rgba(53,255,192,.32);background:rgba(53,255,192,.055);
+  box-shadow:0 0 35px rgba(53,255,192,.10),inset 0 0 20px rgba(53,255,192,.03)
+}
+.hero h1{font-size:clamp(42px,7vw,82px);line-height:.92;letter-spacing:-4px;margin:20px 0 16px}
+.hero h1 span{color:var(--mint);text-shadow:0 0 35px rgba(53,255,192,.25)}
+.hero p{max-width:720px;margin:auto;color:var(--muted);font-size:17px;line-height:1.65}
+.proof{
+  margin:23px auto 0;width:max-content;display:flex;align-items:center;gap:9px;
+  padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.045);
+  border:1px solid rgba(255,255,255,.10);font-size:13px;font-weight:900
+}
+.proof i{width:9px;height:9px;border-radius:50%;background:var(--mint);box-shadow:0 0 16px var(--mint)}
+.grid{display:grid;grid-template-columns:1.08fr .92fr;gap:28px;margin-top:55px;perspective:1400px}
+.card{
+  position:relative;padding:30px;border-radius:30px;overflow:hidden;
+  background:linear-gradient(145deg,rgba(15,43,34,.92),rgba(2,12,9,.96));
+  border:1px solid var(--line);
+  box-shadow:0 30px 70px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.06);
+  transform-style:preserve-3d;transition:.4s ease;
+}
+.card:hover{transform:translateY(-10px) rotateX(2deg) rotateY(-1deg);box-shadow:0 40px 90px rgba(0,0,0,.58),0 0 55px rgba(53,255,192,.08)}
+.card:before{
+  content:"";position:absolute;inset:-2px;pointer-events:none;
+  background:linear-gradient(120deg,transparent 15%,rgba(255,255,255,.10),transparent 42%);
+  transform:translateX(-100%);transition:.8s
+}
+.card:hover:before{transform:translateX(100%)}
+.flag{position:absolute;right:-48px;top:25px;transform:rotate(37deg);width:180px;text-align:center;padding:8px;background:linear-gradient(90deg,#7941e9,#bb7bff);font-size:10px;font-weight:1000;letter-spacing:1px}
+.top{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.kicker{font-size:11px;letter-spacing:1.5px;font-weight:1000;color:var(--mint);text-transform:uppercase}
+.bought{font-size:11px;font-weight:900;padding:7px 10px;border-radius:99px;border:1px solid rgba(53,255,192,.18);background:rgba(53,255,192,.06)}
+.product-flex{display:flex;gap:28px;align-items:center;margin:30px 0}
+.book3d{
+  flex:0 0 190px;height:260px;position:relative;padding:24px 16px;text-align:center;
+  border-radius:4px 14px 14px 4px;transform:perspective(900px) rotateY(-12deg) rotateX(2deg);
+  background:linear-gradient(150deg,#162746,#060d18 70%);
+  border-left:11px solid #263c6a;
+  box-shadow:20px 22px 35px rgba(0,0,0,.55),inset -10px 0 18px rgba(255,255,255,.04);
+}
+.book3d:after{content:"";position:absolute;left:-11px;top:0;bottom:0;width:2px;background:rgba(255,255,255,.2)}
+.book3d small{font-size:7px;letter-spacing:1.5px;color:#a9bfdc}
+.book3d h2{font-size:28px;line-height:.9;margin:25px 0 10px}
+.book3d h2 span{color:var(--cyan)}
+.book3d .num{color:var(--gold);font-size:10px;font-weight:1000}
+.book3d .icon{font-size:42px;margin-top:14px}
+.copy h2{font-size:28px;line-height:1.05;margin:0 0 11px}
+.copy p{color:var(--muted);font-size:13px;line-height:1.6;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0}
+.chips span{font-size:10px;font-weight:800;padding:6px 8px;border-radius:7px;background:rgba(255,255,255,.045);color:#cce0d8;border:1px solid rgba(255,255,255,.05)}
+.stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+.stat{font-size:10px;font-weight:900;padding:8px 9px;border-radius:9px;background:rgba(0,0,0,.18)}
+.bottom{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-top:22px}
+.price small{display:block;color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:1px;font-weight:900}
+.price strong{font-size:40px;line-height:1;color:var(--mint)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 20px;
+  border-radius:15px;text-decoration:none;font-size:13px;font-weight:1000;color:#00130d;
+  background:linear-gradient(135deg,#55ffd0,#11d78e);box-shadow:0 14px 30px rgba(53,255,192,.16);
+  transition:.25s
+}
+.btn:hover{transform:translateY(-2px) scale(1.02);filter:brightness(1.08)}
+.btn.purple{color:#10051d;background:linear-gradient(135deg,#d3aaff,#8c50ff);box-shadow:0 14px 30px rgba(157,98,255,.17)}
+.wa{margin-top:22px;padding:15px;border-radius:17px;border:1px dashed rgba(53,255,192,.25);background:rgba(53,255,192,.035);display:flex;justify-content:space-between;align-items:center;gap:12px}
+.wa b{font-size:12px}.wa span{display:block;color:var(--muted);font-size:10px;margin-top:3px}
+.wa a{color:var(--mint);font-size:12px;font-weight:1000;text-decoration:none;white-space:nowrap}
+
+/* FREE TERMINAL TOOLKIT */
+.free{
+  margin-top:70px;padding:2px;border-radius:32px;
+  background:linear-gradient(135deg,rgba(53,255,192,.55),rgba(54,223,255,.18),rgba(157,98,255,.35));
+  box-shadow:0 35px 90px rgba(0,0,0,.5)
+}
+.free-inner{
+  border-radius:30px;padding:38px;
+  background:
+   radial-gradient(circle at 85% 15%,rgba(54,223,255,.10),transparent 30%),
+   linear-gradient(145deg,#0b211a,#03100c);
+  position:relative;overflow:hidden
+}
+.free-head{text-align:center}
+.free-head .badge{color:var(--cyan);border-color:rgba(54,223,255,.3)}
+.free-head h2{font-size:clamp(32px,5vw,54px);margin:15px 0 8px;letter-spacing:-2px}
+.free-head p{color:var(--muted);margin:0 auto;max-width:650px;line-height:1.6;font-size:14px}
+.terminal{
+  margin:32px auto 25px;max-width:800px;border-radius:19px;overflow:hidden;
+  background:#030a08;border:1px solid rgba(255,255,255,.10);
+  box-shadow:0 25px 60px rgba(0,0,0,.55),0 0 45px rgba(54,223,255,.06)
+}
+.termbar{height:43px;display:flex;align-items:center;gap:7px;padding:0 15px;border-bottom:1px solid rgba(255,255,255,.08);background:#07130f}
+.dot{width:9px;height:9px;border-radius:50%;background:#34574d}
+.term-title{margin-left:10px;color:#6f8c83;font:700 11px/1 monospace}
+.code{padding:25px;font:14px/1.8 ui-monospace,SFMono-Regular,Menlo,monospace;color:#b9d4ca}
+.prompt{color:var(--mint)}.cmd{color:#f5fff9}.ok{color:var(--green)}.arrow{color:#6e9588}
+.free-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.youtube{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:0 20px;
+  border-radius:14px;text-decoration:none;background:linear-gradient(135deg,#ff315d,#e9003d);
+  color:#fff;font-weight:1000;font-size:13px;box-shadow:0 14px 30px rgba(255,49,93,.14)
+}
+.drive{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:0 20px;
+  border-radius:14px;text-decoration:none;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);
+  color:#eafff7;font-weight:950;font-size:13px
+}
+.footer-note{text-align:center;color:#5f7c72;font-size:10px;margin-top:22px;letter-spacing:1px}
+
+/* floating WhatsApp */
+.float-wa{
+  position:fixed;right:18px;bottom:18px;z-index:20;width:58px;height:58px;border-radius:50%;
+  display:grid;place-items:center;text-decoration:none;font-size:25px;
+  background:linear-gradient(145deg,#35ffc0,#08a96f);box-shadow:0 15px 35px rgba(0,0,0,.45),0 0 25px rgba(53,255,192,.25);
+  animation:pulse 2.2s infinite
+}
+@keyframes pulse{50%{box-shadow:0 15px 35px rgba(0,0,0,.45),0 0 38px rgba(53,255,192,.38)}}
+
+@media(max-width:850px){.grid{grid-template-columns:1fr}.product-flex{align-items:flex-start}}
+@media(max-width:560px){
+  .wrap{padding:55px 13px}.hero h1{letter-spacing:-2.5px}.hero p{font-size:14px}
+  .card{padding:21px;border-radius:23px}.free-inner{padding:25px 18px}
+  .product-flex{flex-direction:column;align-items:center}.book3d{transform:none;width:190px}
+  .copy{text-align:center}.chips,.stats{justify-content:center}
+  .bottom{flex-direction:column;align-items:stretch}.btn{width:100%}
+  .wa{flex-direction:column;text-align:center}.code{font-size:11px;padding:20px}
+}
+
+/* High-conversion WhatsApp CTA */
+.wa-hot{
+  margin-top:24px;padding:20px 18px;border-radius:20px;
+  border:1px solid rgba(53,255,192,.48);
+  background:linear-gradient(135deg,rgba(53,255,192,.12),rgba(16,217,147,.035));
+  box-shadow:0 0 35px rgba(53,255,192,.09),inset 0 1px 0 rgba(255,255,255,.08);
+  text-align:center;position:relative;overflow:hidden
+}
+.wa-hot:before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(110deg,transparent 20%,rgba(255,255,255,.08),transparent 55%);
+  transform:translateX(-100%);animation:shine 3.5s infinite
+}
+@keyframes shine{65%,100%{transform:translateX(120%)}}
+.wa-hot .wa-label{
+  position:relative;color:#dffff3;font-size:12px;font-weight:1000;
+  letter-spacing:1.2px;text-transform:uppercase
+}
+.wa-hot .wa-number{
+  position:relative;display:block;margin:6px 0 12px;color:var(--mint);
+  font-size:clamp(25px,5vw,38px);line-height:1;font-weight:1000;
+  letter-spacing:1px;text-shadow:0 0 25px rgba(53,255,192,.32)
+}
+.wa-hot a{
+  position:relative;display:flex;align-items:center;justify-content:center;gap:9px;
+  min-height:50px;border-radius:13px;background:linear-gradient(135deg,#49ffbf,#0dcf88);
+  color:#00150e;text-decoration:none;font-weight:1000;font-size:14px;
+  box-shadow:0 12px 28px rgba(53,255,192,.18)
+}
+.mini-logos{display:flex;flex-direction:column;gap:8px;margin-top:23px}
+.mini-logo{
+  padding:8px 9px;border-radius:9px;font-size:9px;font-weight:1000;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.045)
+}
+.mini-logo.linux{color:#fff}.mini-logo.q{color:#ffd34d}.mini-logo.mysql{color:#54dfff}
+.price strong{font-size:clamp(34px,5vw,48px)}
+.price strong.green{color:var(--mint)}
+
+
+/* REAL COVER ART + HIGH-CONVERSION 3D SHOWCASE */
+.cover-stage{
+  flex:0 0 285px; min-height:365px; position:relative; display:grid; place-items:center;
+  perspective:1200px;
+  transform-style:preserve-3d;
+  animation:ebookFloat 5.2s ease-in-out infinite;
+  will-change:transform;
+}
+@keyframes ebookFloat{
+  0%,100%{transform:translate3d(0,0,0) rotateZ(-.15deg)}
+  25%{transform:translate3d(0,-6px,0) rotateZ(.18deg)}
+  50%{transform:translate3d(1px,-9px,0) rotateZ(-.12deg)}
+  75%{transform:translate3d(-1px,-4px,0) rotateZ(.12deg)}
+}
+.cover-glow{
+  position:absolute; width:230px;height:310px;border-radius:28px;
+  background:radial-gradient(circle,rgba(53,255,192,.26),transparent 68%);
+  filter:blur(20px); animation:coverGlow 3s ease-in-out infinite alternate
+}
+.cover-stage.purple .cover-glow{background:radial-gradient(circle,rgba(157,98,255,.34),transparent 68%)}
+@keyframes coverGlow{to{transform:scale(1.12);opacity:.72}}
+.real-cover{
+  position:relative;width:230px;max-height:345px;object-fit:cover;
+  border-radius:8px 18px 18px 8px;display:block;
+  transform:perspective(1100px) rotateY(-13deg) rotateX(2deg) rotateZ(-.4deg) translateZ(0);
+  box-shadow:22px 27px 38px rgba(0,0,0,.62),-4px 0 0 rgba(255,255,255,.08),0 0 38px rgba(53,255,192,.14);
+  transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s ease;z-index:2;
+  will-change:transform;
+  animation:coverBreath 4.8s ease-in-out infinite;
+}
+@keyframes coverBreath{
+  0%,100%{filter:brightness(1);transform:perspective(1100px) rotateY(-13deg) rotateX(2deg) rotateZ(-.4deg) translate3d(0,0,0) scale(1)}
+  50%{filter:brightness(1.035);transform:perspective(1100px) rotateY(-11deg) rotateX(2.5deg) rotateZ(-.1deg) translate3d(0,-3px,8px) scale(1.008)}
+}
+.cover-stage.purple .real-cover{box-shadow:22px 27px 38px rgba(0,0,0,.62),-4px 0 0 rgba(255,255,255,.08),0 0 45px rgba(157,98,255,.22)}
+.card:hover .real-cover{animation-play-state:paused;transform:perspective(1100px) rotateY(-5deg) rotateX(1deg) translate3d(0,-10px,28px) scale(1.035);box-shadow:25px 35px 48px rgba(0,0,0,.68),0 0 55px rgba(53,255,192,.20)}
+.cover-side{
+  position:absolute;left:calc(50% - 115px);top:50%;width:18px;height:292px;
+  transform:translate(-128px,-50%) skewY(-3deg);background:linear-gradient(#203e6a,#0b1a31);
+  border-radius:4px 0 0 4px;z-index:1;opacity:.9
+}
+.cover-badge{
+  position:absolute;right:5px;bottom:24px;z-index:4;padding:9px 12px;border-radius:12px;
+  background:rgba(3,13,10,.9);border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 12px 25px rgba(0,0,0,.35);font-size:10px;font-weight:1000
+}
+.cover-badge strong{display:block;color:var(--mint);font-size:17px}
+.cover-badge.gold strong{color:var(--gold)}
+.cover-label{
+  position:absolute;left:5px;top:25px;z-index:4;padding:8px 10px;border-radius:10px;
+  font-size:9px;font-weight:1000;letter-spacing:.8px;background:rgba(3,13,10,.88);
+  border:1px solid rgba(255,255,255,.15);box-shadow:0 10px 25px rgba(0,0,0,.3)
+}
+.bonus-strip{
+  margin:18px 0 0;padding:13px 15px;border-radius:14px;
+  background:linear-gradient(90deg,rgba(53,255,192,.09),rgba(53,255,192,.025));
+  border:1px solid rgba(53,255,192,.15);font-size:11px;color:#cce8df
+}
+.bonus-strip b{color:var(--mint)}
+.price strong.price399{
+  color:var(--gold);font-size:clamp(43px,6vw,55px);
+  text-shadow:0 0 25px rgba(255,211,77,.16)
+}
+.price .was{font-size:10px;color:#789189;text-decoration:line-through;margin-left:5px}
+.price .offer{font-size:10px;color:var(--mint);font-weight:900;margin-left:7px}
+.bundle-list{
+  display:grid;gap:9px;margin:17px 0
+}
+.bundle-item{
+  display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:12px;
+  background:linear-gradient(90deg,rgba(255,255,255,.055),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.07);font-size:11px;font-weight:850
+}
+.bundle-icon{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-size:15px;background:rgba(255,255,255,.06)}
+.bundle-item b{display:block;font-size:12px}.bundle-item small{display:block;color:var(--muted);font-size:9px;margin-top:2px}
+@media(max-width:560px){
+ .cover-stage{flex-basis:auto;width:100%;min-height:390px}
+ .real-cover{width:min(270px,82vw);max-height:370px;transform:perspective(900px) rotateY(-5deg) rotateX(1deg);}
+ .cover-side{display:none}
+ .card:hover .real-cover{animation-play-state:paused;transform:perspective(900px) rotateY(-2deg) translate3d(0,-7px,14px) scale(1.02)}
+ .cover-badge{right:calc(50% - 145px);bottom:8px}
+ .cover-label{left:calc(50% - 145px);top:16px}
+}
+
+
+/* Real Terminal Toolkit artwork */
+.toolkit-art{
+  margin:30px auto 24px;max-width:720px;position:relative;perspective:1400px;
+  border-radius:24px;padding:10px;
+  background:linear-gradient(135deg,rgba(53,255,192,.28),rgba(54,223,255,.14),rgba(157,98,255,.28));
+  box-shadow:0 30px 80px rgba(0,0,0,.52),0 0 55px rgba(54,223,255,.10);
+  animation:toolkitFloat 5.8s ease-in-out infinite;
+  will-change:transform
+}
+@keyframes toolkitFloat{
+  0%,100%{transform:translateY(0) rotateZ(0)}
+  50%{transform:translateY(-5px) rotateZ(.18deg)}
+}
+.toolkit-art img{
+  display:block;width:100%;height:auto;border-radius:17px;
+  transform:perspective(1300px) rotateX(1deg) rotateY(-2deg);
+  box-shadow:0 25px 55px rgba(0,0,0,.60);
+  transition:.45s ease
+}
+.toolkit-art:hover img{transform:perspective(1300px) rotateX(0) rotateY(0) translateY(-6px) scale(1.01)}
+.art-caption{
+  margin:-2px auto 22px;width:max-content;max-width:100%;padding:9px 14px;
+  border-radius:999px;background:rgba(3,15,11,.86);border:1px solid rgba(53,255,192,.22);
+  color:#cffff0;font-size:11px;font-weight:900;letter-spacing:.4px;text-align:center
+}
+
+@media (prefers-reduced-motion: reduce){
+  .cover-stage,.real-cover,.toolkit-art{animation:none!important}
+}
+
+/* ULTIMATE EBOOK — REAL SAMPLE PAGE SHOWCASE */
+.sample-showcase{
+  margin:30px 0 6px;padding:22px;border-radius:26px;position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 15% 0%,rgba(54,223,255,.13),transparent 32%),
+    radial-gradient(circle at 90% 100%,rgba(157,98,255,.16),transparent 34%),
+    linear-gradient(145deg,rgba(9,18,38,.98),rgba(3,8,20,.98));
+  border:1px solid rgba(157,98,255,.38);
+  box-shadow:0 28px 65px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.08),0 0 55px rgba(157,98,255,.07);
+}
+.sample-showcase:before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.07),transparent 42%);
+  transform:translateX(-120%);animation:sampleShine 5.5s infinite
+}
+@keyframes sampleShine{62%,100%{transform:translateX(120%)}}
+.sample-head{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:18px}
+.sample-eyebrow{font-size:10px;letter-spacing:1.8px;font-weight:1000;color:#b889ff}
+.sample-head h3{margin:7px 0 6px;font-size:clamp(22px,3.3vw,32px);line-height:1.02;letter-spacing:-.7px}
+.sample-head h3 span{background:linear-gradient(90deg,#36dfff,#c18cff,#ffd34d);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sample-head p{margin:0;color:#93a4bd;font-size:11px;line-height:1.55;max-width:610px}
+.sample-proof{flex:0 0 auto;min-width:142px;padding:12px 15px;border-radius:16px;text-align:center;background:linear-gradient(145deg,rgba(53,255,192,.14),rgba(53,255,192,.035));border:1px solid rgba(53,255,192,.28);box-shadow:0 0 28px rgba(53,255,192,.08)}
+.sample-proof span{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;margin-right:5px;background:#19d993;color:#00140d;font-weight:1000;box-shadow:0 0 18px rgba(25,217,147,.45)}
+.sample-proof strong{font-size:14px;color:#f5fff9;vertical-align:middle}
+.sample-proof small{display:block;margin-top:4px;color:#84b5a5;font-size:8px;font-weight:800}
+.sample-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:13px;perspective:1600px}
+.sample-card{appearance:none;border:0;padding:0;background:transparent;color:inherit;text-align:left;cursor:pointer;position:relative;transform-style:preserve-3d;transition:transform .4s cubic-bezier(.2,.8,.2,1),filter .4s ease;animation:sampleFloat 6s ease-in-out infinite;animation-delay:calc(var(--i,0) * -0.45s)}
+.sample-card:nth-child(1){--i:1}.sample-card:nth-child(2){--i:2}.sample-card:nth-child(3){--i:3}.sample-card:nth-child(4){--i:4}.sample-card:nth-child(5){--i:5}.sample-card:nth-child(6){--i:6}.sample-card:nth-child(7){--i:7}.sample-card:nth-child(8){--i:8}.sample-card:nth-child(9){--i:9}.sample-card:nth-child(10){--i:10}
+@keyframes sampleFloat{0%,100%{transform:translateY(0) rotateX(0) rotateY(0)}50%{transform:translateY(-5px) rotateX(.7deg) rotateY(.7deg)}}
+.sample-card:hover{animation-play-state:paused;transform:translateY(-11px) rotateX(2deg) rotateY(-4deg) translateZ(22px);filter:brightness(1.08)}
+.sample-card:focus-visible{outline:2px solid #36dfff;outline-offset:5px;border-radius:15px}
+.sample-img-wrap{display:block;position:relative;padding:5px;border-radius:13px;background:linear-gradient(145deg,#6e35ff,#36dfff,#ff4d8d);box-shadow:0 15px 27px rgba(0,0,0,.48),0 0 20px rgba(111,53,255,.12);transform:rotateX(1deg) rotateY(-2deg);transition:.4s}
+.sample-img-wrap:after{content:"";position:absolute;inset:0;border-radius:9px;background:linear-gradient(120deg,rgba(255,255,255,.20),transparent 24%,transparent 75%,rgba(255,255,255,.08));pointer-events:none}
+.sample-card img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:9px;background:#fff}
+.sample-page{position:absolute;z-index:3;left:8px;top:8px;padding:5px 7px;border-radius:8px;background:rgba(4,8,22,.88);border:1px solid rgba(255,255,255,.16);font-size:7px;font-weight:1000;letter-spacing:.8px;color:#fff;box-shadow:0 6px 15px rgba(0,0,0,.35)}
+.sample-meta{display:block;padding:9px 2px 0}.sample-meta b{display:block;font-size:9px;line-height:1.2;color:#f2f7ff}.sample-meta small{display:block;margin-top:4px;font-size:7.5px;line-height:1.25;color:#7f95b2}
+.sample-foot{position:relative;z-index:1;display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:18px}.sample-foot span{padding:7px 9px;border-radius:999px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);font-size:8px;font-weight:900;color:#b9c9dc}
+.sample-modal{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.82);backdrop-filter:blur(12px);display:none;place-items:center;padding:22px}.sample-modal.open{display:grid}
+.sample-modal-inner{width:min(94vw,720px);max-height:92vh;display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px;border-radius:22px;background:linear-gradient(145deg,#0d1530,#050812);border:1px solid rgba(54,223,255,.34);box-shadow:0 35px 100px rgba(0,0,0,.72),0 0 60px rgba(54,223,255,.12)}
+.sample-modal img{display:block;max-width:100%;max-height:78vh;width:auto;height:auto;border-radius:12px;box-shadow:0 20px 45px rgba(0,0,0,.6)}
+.sample-modal-title{font-size:11px;font-weight:950;color:#dcecff;text-align:center}.sample-close{position:absolute;right:18px;top:18px;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(7,12,24,.88);color:#fff;font-size:22px;cursor:pointer}
+@media(max-width:950px){.sample-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:650px){.sample-showcase{padding:16px;margin-left:-4px;margin-right:-4px}.sample-head{align-items:flex-start;flex-direction:column}.sample-proof{width:100%}.sample-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.sample-head h3{font-size:25px}.sample-modal{padding:12px}.sample-modal img{max-height:78vh}}
+@media(prefers-reduced-motion:reduce){.sample-card,.sample-showcase:before{animation:none!important}}
+
+
+/* SQL 100+ PAGE EBOOK SAMPLE SHOWCASE */
+.sql-sample-showcase{
+  margin-top:24px;
+  background:
+    radial-gradient(circle at 8% 0%,rgba(54,164,255,.16),transparent 30%),
+    radial-gradient(circle at 94% 100%,rgba(76,80,255,.18),transparent 34%),
+    linear-gradient(145deg,rgba(7,20,48,.99),rgba(2,8,23,.99));
+  border-color:rgba(54,164,255,.42);
+  box-shadow:0 30px 75px rgba(0,0,0,.52),inset 0 1px 0 rgba(255,255,255,.08),0 0 60px rgba(54,164,255,.08);
+}
+.sql-eyebrow{color:#54b9ff}
+.sql-sample-showcase .sample-head h3 span{
+  background:linear-gradient(90deg,#43c7ff,#8d72ff,#f4c7ff);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.sql-proof{
+  background:linear-gradient(145deg,rgba(54,164,255,.18),rgba(86,91,255,.05));
+  border-color:rgba(54,164,255,.35);
+}
+.sql-proof span{
+  width:auto;min-width:42px;padding:0 7px;border-radius:10px;
+  background:linear-gradient(145deg,#168cff,#735cff);color:#fff;
+  box-shadow:0 0 22px rgba(54,164,255,.38);
+}
+.sql-sample-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
+.sql-img-wrap{
+  background:linear-gradient(145deg,#238cff,#735cff,#d45dff);
+  box-shadow:0 17px 30px rgba(0,0,0,.5),0 0 24px rgba(54,164,255,.14);
+}
+.sql-sample-card:hover .sql-img-wrap{
+  box-shadow:0 24px 40px rgba(0,0,0,.58),0 0 32px rgba(54,164,255,.22);
+}
+.sql-sample-foot span{
+  border-color:rgba(54,164,255,.15);
+  background:rgba(54,164,255,.045);
+}
+@media(max-width:950px){.sql-sample-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:650px){.sql-sample-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+</style>
+</head>
+<body>
+
+<section class="wrap" id="paid-ebooks">
+
+  <div class="brand">
+    <div class="logo">CAREER<span>INIT</span>WITHSHUBHAM</div>
+    <p>Your IT Success Partner • Learn • Upskill • Grow</p>
+  </div>
+
+  <header class="hero">
+    <div class="badge">💎 PREMIUM LEARNING RESOURCES</div>
+    <h1>Invest in Your<br><span>IT Career.</span></h1>
+    <p>Premium ebooks for IT interviews, practical skills and career growth — designed to take you from beginner to advanced.</p>
+    <div class="proof"><i></i> 500+ Learners Already Bought</div>
+  </header>
+
+  <div class="grid">
+
+    <article class="card">
+      <div class="flag">FLAGSHIP EBOOK</div>
+      <div class="top">
+        <div class="kicker">👑 Ultra Ultimate Interview</div>
+        <div class="bought">✓ 500+ Bought</div>
+      </div>
+
+      <div class="product-flex">
+        <div class="cover-stage purple">
+          <div class="cover-glow"></div>
+          <div class="cover-side"></div>
+          <img class="real-cover" src="image_01.png" alt="The Ultimate IT Interview Bible — 2026 Edition">
+          <div class="cover-label">🔥 2026 EDITION</div>
+          <div class="cover-badge gold"><strong>₹399</strong>ONE-TIME</div>
+        </div>
+        <div class="copy">
+          <h2>Master IT Interviews With One Complete Ebook.</h2>
+          <p>One powerful interview-preparation guide covering the most important IT domains and real-world scenarios.</p>
+          <div class="stats">
+            <div class="stat">1777+ Questions</div><div class="stat">11+ IT Domains</div><div class="stat">Beginner → Advanced</div>
+          </div>
+          <div class="bonus-strip">⚡ <b>REAL INTERVIEW FOCUSED</b> • Production scenarios • Practical use cases • Easy-to-understand answers</div>
+          <div class="chips">
+            <span>Linux</span><span>Shell</span><span>SQL</span><span>AWS</span><span>Networking</span>
+            <span>Docker</span><span>Kubernetes</span><span>CI/CD</span><span>SRE</span><span>Production</span>
+          </div>
+        </div>
+      </div>
+
+
+      <section class="sample-showcase" aria-label="Ultimate Interview Bible sample pages">
+        <div class="sample-head">
+          <div>
+            <div class="sample-eyebrow">📖 SEE THE ACTUAL INSIDE PAGES</div>
+            <h3>Not just a cover — <span>see real sample pages.</span></h3>
+            <p>Preview the actual Ultimate Interview Bible pages before you buy. Tap any page to open it larger.</p>
+          </div>
+          <div class="sample-proof"><span>✓</span><strong>500+ BOUGHT</strong><small>Trusted by 500+ learners</small></div>
+        </div>
+        <div class="sample-grid"><button class="sample-card" type="button" aria-label="Open sample page: 03 • Who Should Read This Book?" data-title="03 • Who Should Read This Book?" data-src="image_02.jpg">
+  <span class="sample-page">REAL SAMPLE</span>
+  <span class="sample-img-wrap"><img src="image_03.jpg" alt="03 • Who Should Read This Book?" loading="lazy"></span>
+  <span class="sample-meta"><b>03 • Who Should Read This Book?</b><small>Career paths &amp; target learners</small></span>
+</button><button class="sample-card" type="button" aria-label="Open sample page: 04 • Table of Contents" data-title="04 • Table of Contents" data-src="image_04.jpg">
+  <span class="sample-page">REAL SAMPLE</span>
+  <span class="sample-img-wrap"><img src="image_05.jpg" alt="04 • Table of Contents" loading="lazy"></span>
+  <span class="sample-meta"><b>04 • Table of Contents</b><small>11 sections • 1777+ questions</small></span>
+</button><button class="sample-card" type="button" aria-label="Open sample page: 25 • Linux Troubleshooting" data-title="25 • Linux Troubleshooting" data-src="image_06.jpg">
+  <span class="sample-page">REAL SAMPLE</span>
+  <span class="sample-img-wrap"><img src="image_07.jpg" alt="25 • Linux Troubleshooting" loading="lazy"></span>
+  <span class="sample-meta"><b>25 • Linux Troubleshooting</b><small>Production-style troubleshooting</small></span>
+</button><button class="sample-card" type="button" aria-label="Open sample page: 106 • AWS Interview Questions" data-title="106 • AWS Interview Questions" data-src="image_08.jpg">
+  <span class="sample-page">REAL SAMPLE</span>
+  <span class="sample-img-wrap"><img src="image_09.jpg" alt="106 • AWS Interview Questions" loading="lazy"></span>
+  <span class="sample-meta"><b>106 • AWS Interview Questions</b><small>EC2 • practical interview Q&amp;A</small></span>
+</button><button class="sample-card" type="button" aria-label="Open sample page: 70 • SQL Interview Questions" data-title="70 • SQL Interview Questions" data-src="image_10.jpg">
+  <span class="sample-page">REAL SAMPLE</span>
+  <span class="sample-img-wrap"><img src="image_11.jpg" alt="70 • SQL Interview Questions" loading="lazy"></span>
+  <span class="sample-meta"><b>70 • SQL Interview Questions</b><small>Grouping • queries • examples</small></span>
+</button><button class="sample-card" type="button" aria-label="Open sample page: 226 • Docker Basics" data-title="226 • Docker Basics" data-src="image_12.jpg">
+  <span class="sample-page">REAL SAMPLE</span>
+  <span class="sample-img-wrap"><img src="image_13.jpg" alt="226 • Docker Basics" loading="lazy"></span>
+  <span class="sample-meta"><b>226 • Docker Basics</b><small>Installation • lifecycle • commands</small></span>
+</button><button class="sample-card" type="button" aria-label="Open sample page: 276 • Kubernetes Basics" data-title="276 • Kubernetes Basics" data-src="image_14.jpg">
+  <span class="sample-page">REAL SAMPLE</span>
+  <span class="sample-img-wrap"><img src="image_15.jpg" alt="276 • Kubernetes Basics" loading="lazy"></span>
+  <span class="sample-meta"><b>276 • Kubernetes Basics</b><small>Controllers • scheduler • lifecycle</small></span>
+</button><button class="sample-card" type="button" aria-label="Open sample page: 315 • Monitoring" data-title="315 • Monitoring" data-src="image_16.jpg">
+  <span class="sample-page">REAL SAMPLE</span>
+  <span class="sample-img-wrap"><img src="image_17.jpg" alt="315 • Monitoring" loading="lazy"></span>
+  <span class="sample-meta"><b>315 • Monitoring</b><small>Grafana • Kubernetes • health checks</small></span>
+</button><button class="sample-card" type="button" aria-label="Open sample page: 279 • Pods" data-title="279 • Pods" data-src="image_18.jpg">
+  <span class="sample-page">REAL SAMPLE</span>
+  <span class="sample-img-wrap"><img src="image_19.jpg" alt="279 • Pods" loading="lazy"></span>
+  <span class="sample-meta"><b>279 • Pods</b><small>Pod status • CrashLoopBackOff</small></span>
+</button><button class="sample-card" type="button" aria-label="Open sample page: 315 • Monitoring Deep Dive" data-title="315 • Monitoring Deep Dive" data-src="image_20.jpg">
+  <span class="sample-page">REAL SAMPLE</span>
+  <span class="sample-img-wrap"><img src="image_21.jpg" alt="315 • Monitoring Deep Dive" loading="lazy"></span>
+  <span class="sample-meta"><b>315 • Monitoring Deep Dive</b><small>kubectl top • metrics • Prometheus</small></span>
+</button></div>
+        <div class="sample-foot"><span>✨ Real ebook pages</span><span>🚀 Beginner → Advanced</span><span>💼 Interview focused</span><span>👑 473-page premium guide</span></div>
+      </section>
+
+
+      
+
+      <div class="bottom">
+        <div class="price"><small>Special price <span class="was">₹999</span><span class="offer">SAVE NOW</span></small><strong class="price399">₹399</strong></div>
+        <a class="btn purple" href="https://wa.me/917838379471?text=Hi%2C%20I%20want%20to%20buy%20the%20Ultra%20Ultimate%20Interview%20Ebook%20for%20%E2%82%B9399." target="_blank" rel="noopener">🔥 BUY NOW</a>
+      </div>
+
+      <div class="wa-hot">
+        <div class="wa-label">📲 DM ON WHATSAPP FOR BUY</div>
+        <div class="wa-number">7838379471</div>
+        <a href="https://wa.me/917838379471?text=Hi%2C%20I%20want%20to%20buy%20the%20Ultra%20Ultimate%20Interview%20Ebook%20for%20%E2%82%B9399." target="_blank" rel="noopener">💬 MESSAGE NOW • GET DETAILS</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="top">
+        <div class="kicker">🚀 Starter Career Bundle</div>
+        <div class="bought">✓ 500+ Bought</div>
+      </div>
+
+      <div class="product-flex">
+        <div class="cover-stage">
+          <div class="cover-glow"></div>
+          <div class="cover-side"></div>
+          <img class="real-cover" src="image_22.jpg" alt="Three Powerful Ebooks for a Brighter IT Career">
+          <div class="cover-label">💥 SPECIAL OFFER</div>
+          <div class="cover-badge gold"><strong>₹100</strong>3 EBOOKS</div>
+        </div>
+        <div class="copy">
+          <h2>3 Essential Ebooks. Just ₹100.</h2>
+          <p>An affordable 3-ebook starter pack for Linux fundamentals, Linux interview questions and MySQL — from basics to advanced.</p>
+          <div class="stats">
+            <div class="stat">3 PDF Ebooks</div><div class="stat">Interview Ready</div><div class="stat">Lifetime Access</div>
+          </div>
+          <div class="bundle-list">
+            <div class="bundle-item"><div class="bundle-icon">🐧</div><div><b>Linux Basic to Advanced</b><small>Fundamentals • Commands • Shell • Networking • Real-world skills</small></div></div>
+            <div class="bundle-item"><div class="bundle-icon">❓</div><div><b>Linux Interview Questions</b><small>Most asked questions • Scenarios • Interview-focused answers</small></div></div>
+            <div class="bundle-item"><div class="bundle-icon">🗄️</div><div><b>MySQL Basic to Advanced</b><small>Queries • Joins • Subqueries • Indexes • Optimization</small></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <div class="price"><small>One-time payment</small><strong>₹100</strong></div>
+        <a class="btn" href="https://wa.me/917838379471?text=Hi%2C%20I%20want%20to%20buy%20the%203%20Ebook%20Bundle%20for%20%E2%82%B9100." target="_blank" rel="noopener">💚 BUY FOR ₹100</a>
+      </div>
+
+      <div class="wa-hot">
+        <div class="wa-label">📲 DM ON WHATSAPP FOR BUY</div>
+        <div class="wa-number">7838379471</div>
+        <a href="https://wa.me/917838379471?text=Hi%2C%20I%20want%20to%20buy%20the%203%20Ebook%20Bundle%20for%20%E2%82%B9100." target="_blank" rel="noopener">💬 MESSAGE NOW • GET 3 EBOOKS</a>
+      </div>
+    </article>
+
+  </div>
+
+<section class="sample-showcase sql-sample-showcase" aria-label="SQL Mastery eBook sample pages">
+        <div class="sample-head">
+          <div>
+            <div class="sample-eyebrow sql-eyebrow">💻 100+ PAGE EBOOK • REAL INSIDE PREVIEW</div>
+            <h3>Want the <span>100+ page SQL eBook?</span><br>See the actual pages first.</h3>
+            <p>Real pages from the SQL Mastery eBook — theory, commands, examples, database exercises and practical SQL. Tap any sample to zoom in.</p>
+          </div>
+          <div class="sample-proof sql-proof">
+            <span>100+</span><strong>PAGES</strong><small>SQL learning + practice</small>
+          </div>
+        </div>
+
+        <div class="sample-grid sql-sample-grid">
+
+          <button class="sample-card sql-sample-card" type="button"
+                  aria-label="Open SQL ebook sample: Linux Introduction"
+                  data-title="01 • Linux Introduction"
+                  data-src="image_23.jpg">
+            <span class="sample-img-wrap sql-img-wrap">
+              <span class="sample-page">01 / 108</span>
+              <img src="image_24.jpg" alt="SQL Mastery eBook sample — Linux Introduction" loading="lazy">
+            </span>
+            <span class="sample-meta"><b>Linux Introduction</b><small>Chapter 1 • Foundations</small></span>
+          </button>
+          <button class="sample-card sql-sample-card" type="button"
+                  aria-label="Open SQL ebook sample: File Viewing &amp; Editing"
+                  data-title="02 • File Viewing &amp; Editing"
+                  data-src="image_25.jpg">
+            <span class="sample-img-wrap sql-img-wrap">
+              <span class="sample-page">02 / 108</span>
+              <img src="image_26.jpg" alt="SQL Mastery eBook sample — File Viewing &amp; Editing" loading="lazy">
+            </span>
+            <span class="sample-meta"><b>File Viewing &amp; Editing</b><small>Commands • cat • less • nano</small></span>
+          </button>
+          <button class="sample-card sql-sample-card" type="button"
+                  aria-label="Open SQL ebook sample: Permissions &amp; Ownership"
+                  data-title="03 • Permissions &amp; Ownership"
+                  data-src="image_27.jpg">
+            <span class="sample-img-wrap sql-img-wrap">
+              <span class="sample-page">03 / 108</span>
+              <img src="image_28.jpg" alt="SQL Mastery eBook sample — Permissions &amp; Ownership" loading="lazy">
+            </span>
+            <span class="sample-meta"><b>Permissions &amp; Ownership</b><small>chmod • chown • umask</small></span>
+          </button>
+          <button class="sample-card sql-sample-card" type="button"
+                  aria-label="Open SQL ebook sample: User Management"
+                  data-title="04 • User Management"
+                  data-src="image_29.jpg">
+            <span class="sample-img-wrap sql-img-wrap">
+              <span class="sample-page">04 / 108</span>
+              <img src="image_30.jpg" alt="SQL Mastery eBook sample — User Management" loading="lazy">
+            </span>
+            <span class="sample-meta"><b>User Management</b><small>whoami • id • adduser • passwd</small></span>
+          </button>
+          <button class="sample-card sql-sample-card" type="button"
+                  aria-label="Open SQL ebook sample: Package Management"
+                  data-title="05 • Package Management"
+                  data-src="image_31.jpg">
+            <span class="sample-img-wrap sql-img-wrap">
+              <span class="sample-page">05 / 108</span>
+              <img src="image_32.jpg" alt="SQL Mastery eBook sample — Package Management" loading="lazy">
+            </span>
+            <span class="sample-meta"><b>Package Management</b><small>apt • yum • install • upgrade</small></span>
+          </button>
+          <button class="sample-card sql-sample-card" type="button"
+                  aria-label="Open SQL ebook sample: Linux Text Tools"
+                  data-title="06 • Linux Text Tools"
+                  data-src="image_33.jpg">
+            <span class="sample-img-wrap sql-img-wrap">
+              <span class="sample-page">06 / 108</span>
+              <img src="image_34.jpg" alt="SQL Mastery eBook sample — Linux Text Tools" loading="lazy">
+            </span>
+            <span class="sample-meta"><b>Linux Text Tools</b><small>sort • uniq • practical examples</small></span>
+          </button>
+          <button class="sample-card sql-sample-card" type="button"
+                  aria-label="Open SQL ebook sample: SQL eBook Cover"
+                  data-title="07 • SQL eBook Cover"
+                  data-src="image_35.jpg">
+            <span class="sample-img-wrap sql-img-wrap">
+              <span class="sample-page">07 / 108</span>
+              <img src="image_36.jpg" alt="SQL Mastery eBook sample — SQL eBook Cover" loading="lazy">
+            </span>
+            <span class="sample-meta"><b>SQL eBook Cover</b><small>Learn SQL from Scratch</small></span>
+          </button>
+          <button class="sample-card sql-sample-card" type="button"
+                  aria-label="Open SQL ebook sample: SQL Mastery Table of Contents"
+                  data-title="08 • SQL Mastery Table of Contents"
+                  data-src="image_37.jpg">
+            <span class="sample-img-wrap sql-img-wrap">
+              <span class="sample-page">08 / 108</span>
+              <img src="image_38.jpg" alt="SQL Mastery eBook sample — SQL Mastery Table of Contents" loading="lazy">
+            </span>
+            <span class="sample-meta"><b>SQL Mastery Table of Contents</b><small>23 Chapters • Full Roadmap</small></span>
+          </button>
+          <button class="sample-card sql-sample-card" type="button"
+                  aria-label="Open SQL ebook sample: Real SQL Database Example"
+                  data-title="09 • Real SQL Database Example"
+                  data-src="image_39.jpg">
+            <span class="sample-img-wrap sql-img-wrap">
+              <span class="sample-page">09 / 108</span>
+              <img src="image_40.jpg" alt="SQL Mastery eBook sample — Real SQL Database Example" loading="lazy">
+            </span>
+            <span class="sample-meta"><b>Real SQL Database Example</b><small>CREATE • INSERT • SELECT • Practice</small></span>
+          </button>
+          <button class="sample-card sql-sample-card" type="button"
+                  aria-label="Open SQL ebook sample: SQL Queries &amp; WHERE"
+                  data-title="10 • SQL Queries &amp; WHERE"
+                  data-src="image_41.jpg">
+            <span class="sample-img-wrap sql-img-wrap">
+              <span class="sample-page">10 / 108</span>
+              <img src="image_42.jpg" alt="SQL Mastery eBook sample — SQL Queries &amp; WHERE" loading="lazy">
+            </span>
+            <span class="sample-meta"><b>SQL Queries &amp; WHERE</b><small>SELECT • DISTINCT • WHERE • ORDER BY</small></span>
+          </button>
+        </div>
+
+        <div class="sample-foot sql-sample-foot">
+          <span>📘 100+ Pages</span>
+          <span>🧠 Beginner → Advanced</span>
+          <span>💻 Real Commands</span>
+          <span>🗄️ SQL Examples</span>
+          <span>✍️ Practice Exercises</span>
+        </div>
+      </section>
+
+
+  <!-- FREE TERMINAL TOOLKIT — LAST SECTION -->
+  <section class="free" id="terminal-toolkit">
+    <div class="free-inner">
+      <div class="free-head">
+        <div class="badge">🎁 100% FREE RESOURCE</div>
+        <h2>Terminal Toolkit</h2>
+        <p>A practical L1 / L2 / L2 Production Support Toolkit for beginners, IT Support professionals and DevOps learners. Download it free and build real-world skills.</p>
+      </div>
+
+      <div class="toolkit-art">
+        <img src="image_43.jpg" alt="CareerInitWithShubham L1 L2 L2 Production Support Toolkit ebook">
+      </div>
+      <div class="art-caption">📘 REAL EBOOK PREVIEW • L1 / L2 / L2 PRODUCTION SUPPORT TOOLKIT</div>
+
+      <div class="terminal" style="margin-top:10px">
+        <div class="termbar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="term-title">careerinitwithshubham — terminal-toolkit</span>
+        </div>
+        <div class="code">
+          <div><span class="prompt">user@careerinit:~$</span> <span class="cmd">cat terminal-toolkit.pdf</span></div>
+          <div><span class="ok">✓ Free ebook ready</span></div>
+          <div><span class="arrow">→</span> Practical tools • commands • troubleshooting • interview reference</div>
+        </div>
+      </div>
+      </div>
+
+      <div class="free-actions">
+        <a class="btn" href="https://drive.google.com/file/d/1naYJCaYjCTkaXLIARtz1upRIlmOQXdjI/view?usp=drivesdk" target="_blank" rel="noopener">📥 DOWNLOAD FREE EBOOK</a>
+        <a class="youtube" href="https://youtube.com/@careerinitwithshubham?si=gGYAq6ZwLU5PZ1eJ" target="_blank" rel="noopener">▶ SUBSCRIBE ON YOUTUBE</a>
+      </div>
+
+      <div class="footer-note">CAREERINITWITHSHUBHAM • FREE LEARNING RESOURCES • LEARN • UPSKILL • GROW</div>
+    </div>
+  </section>
+
+</section>
+
+<a class="float-wa" href="https://wa.me/917838379471?text=Hi%2C%20I%20want%20details%20about%20your%20ebooks." target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+
+
+<script>
+(function(){
+  const cards = document.querySelectorAll('.card');
+  const isTouch = matchMedia('(hover: none)').matches;
+  if(isTouch) return;
+
+  cards.forEach(card=>{
+    const cover = card.querySelector('.real-cover');
+    if(!cover) return;
+
+    card.addEventListener('pointermove', e=>{
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX-r.left)/r.width-.5;
+      const y = (e.clientY-r.top)/r.height-.5;
+      const ry = x*4;
+      const rx = -y*3;
+      cover.style.transform =
+        `perspective(1100px) rotateY(${-13+ry}deg) rotateX(${2+rx}deg) rotateZ(${-0.4+x*.4}deg) translate3d(${x*4}px,${y*3-6}px,20px) scale(1.025)`;
+    });
+
+    card.addEventListener('pointerleave', ()=>{
+      cover.style.transform = '';
+    });
+  });
+})();
+</script>
+
+
+<div class="sample-modal" id="sampleModal" role="dialog" aria-modal="true" aria-label="Ebook sample preview">
+  <div class="sample-modal-inner">
+    <button class="sample-close" type="button" aria-label="Close preview">×</button>
+    <img id="sampleModalImg" alt="Ebook sample page preview">
+    <div class="sample-modal-title" id="sampleModalTitle"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+ const modal=document.getElementById('sampleModal'), img=document.getElementById('sampleModalImg'), title=document.getElementById('sampleModalTitle');
+ if(!modal)return;
+ document.querySelectorAll('.sample-card').forEach(card=>card.addEventListener('click',()=>{
+   img.src=card.dataset.src; title.textContent=card.dataset.title; modal.classList.add('open'); document.body.style.overflow='hidden';
+ }));
+ const close=()=>{modal.classList.remove('open');img.src='';document.body.style.overflow='';};
+ modal.addEventListener('click',e=>{if(e.target===modal)close();});
+ modal.querySelector('.sample-close').addEventListener('click',close);
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))close();});
+})();
+</script>
+</body>
+</html>
